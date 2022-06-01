@@ -17,25 +17,12 @@ Now you are all set up and ready to go! Below is a quick example of how to set u
 
 ## Compiling/Testing Huff Contracts
 
-In order to compile and test Huff contracts with Foundry, there are two simple steps. First make sure to put your `.huff` files in the directory named `huff_contracts`. This way, the Huff compiler will know where to look when compiling your contracts.
+The HuffDeployer is a pre-built contract that takes a filename and deploys the corresponding Huff contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the HuffDeployer works under the hood](https://github.com/0xKitsune/Foundry-Huff/blob/main/lib/utils/HuffDeployer.sol). Below is a quick example of how to setup and deploy a SimpleStore contract written in Huff.
 
-Next, you will need to create an interface for your contract. This will allow Foundry to interact with your Huff contract, enabling the full testing capabilities that Foundry has to offer.
-
-Once you have an interface set up for your contract, you are ready to use the HuffDeployer!
-
-The HuffDeployer is a pre-built contract that takes a filename and deploys the corresponding Huff contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the HuffDeployer works under the hood]().
-
-From here, you can simply initialize a new contract through the interface you made and pass in the address of the deployed Huff contract bytecode. Now your Huff contract is fully functional within Foundry!
-
-<br>
-
-## Example
-
-Here is a quick example of how to setup and deploy a SimpleStore contract written in Huff.
-
-Here is the `SimpleStore.huff` file, which should be within the `huff_contracts` directory.
 
 ### SimpleStore.huff
+
+Here is a simple Huff contract called `SimpleStore.huff`, which is stored within the `huff_contracts` directory. Make sure to put all of your `.huff` files in the `huff_contracts` directory so that the Huff compiler knows where to look when compiling.
 
 ```js
 /* Storage Slots */
@@ -70,9 +57,10 @@ Here is the `SimpleStore.huff` file, which should be within the `huff_contracts`
 }
 ```
 
-Next, here is an example interface for the SimpleStore contract.
 
 ### SimpleStore Interface
+
+Next, you will need to create an interface for your contract. This will allow Foundry to interact with your Huff contract, enabling the full testing capabilities that Foundry has to offer.
 
 ```js
 
@@ -82,9 +70,17 @@ interface SimpleStore {
 }
 ```
 
-Lastly, here is the test file that deploys the Huff contract and tests its functions.
+
 
 ### SimpleStore Test
+
+First, the file imports `ISimpleStore.sol` as well as the `HuffDeployer.sol` contract.
+
+To deploy the contract, simply create a new instance of `HuffDeployer` and call `huffDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, `SimpleStore` is passed in to deploy the `SimpleStore.huff` contract. The `deployContract` function compiles the Huff contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to.
+
+The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Huff contract can be used within Foundry like any other Solidity contract.
+
+To test any Huff contract deployed with HuffDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
 
 ```js
 import "../../lib/ds-test/test.sol";
@@ -114,10 +110,3 @@ contract SimpleStoreTest is DSTest {
 
 ```
 
-First, the file imports `ISimpleStore.sol` as well as the `HuffDeployer.sol` contract.
-
-To deploy the contract, simply create a new instance of `HuffDeployer` and call `huffDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, `SimpleStore` is passed in to deploy the `SimpleStore.huff` contract. the `deployContract` function compiles the Huff contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to.
-
-The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Huff contract can be used within Foundry like any other Solidity contract.
-
-To test any Huff contract deployed with HuffDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
