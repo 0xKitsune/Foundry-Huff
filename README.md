@@ -30,8 +30,10 @@ A Foundry template to compile and test Huff Contracts.
                         
 ```
 
+<br>
 
-## Installation / Setup
+
+# Installation / Setup
 
 To set up Foundry x Huff, first install the [Huff compiler](https://github.com/huff-language/huffc) with `yarn global add huffc`.
 
@@ -42,14 +44,18 @@ forge init --template https://github.com/0xKitsune/Foundry-Huff huff_project_nam
 ```
 
 Now you are all set up and ready to go! Below is a quick example of how to set up, deploy and test Huff contracts.
+
+
+<br>
 <br>
 
-## Compiling/Testing Huff Contracts
+
+# Compiling/Testing Huff Contracts
 
 The HuffDeployer is a pre-built contract that takes a filename and deploys the corresponding Huff contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the HuffDeployer works under the hood](https://github.com/0xKitsune/Foundry-Huff/blob/main/lib/utils/HuffDeployer.sol). Below is a quick example of how to setup and deploy a SimpleStore contract written in Huff.
 
 
-### SimpleStore.huff
+## SimpleStore.huff
 
 Here is a simple Huff contract called `SimpleStore.huff`, which is stored within the `huff_contracts` directory. Make sure to put all of your `.huff` files in the `huff_contracts` directory so that the Huff compiler knows where to look when compiling.
 
@@ -86,8 +92,10 @@ Here is a simple Huff contract called `SimpleStore.huff`, which is stored within
 }
 ```
 
+<br>
 
-### SimpleStore Interface
+
+## SimpleStore Interface
 
 Next, you will need to create an interface for your contract. This will allow Foundry to interact with your Huff contract, enabling the full testing capabilities that Foundry has to offer.
 
@@ -99,9 +107,10 @@ interface SimpleStore {
 }
 ```
 
+<br>
 
 
-### SimpleStore Test
+## SimpleStore Test
 
 First, the file imports `ISimpleStore.sol` as well as the `HuffDeployer.sol` contract.
 
