@@ -2,6 +2,35 @@
 
 A Foundry template to compile and test Huff Contracts.
 
+```
+                                    ,...,
+                                  ,::::::<
+                                 ,::/^\"``.
+                                ,::/, `   e`.
+                               ,::; |        '.
+                               ,::|  \___,-.  c)
+                               ;::|     \   '-'
+                               ;::|      \
+                               ;::|   _.=`\
+                               `;:|.=` _.=`\
+                                 '|_.=`   __\
+                                 `\_..==`` /
+                                  .'.___.-'.
+                                 /          \
+                                ('--......--')
+                                /'--......--'\
+                                `"--......--"`
+
+                        ██   ██ ██    ██ ███████ ███████ 
+                        ██   ██ ██    ██ ██      ██      
+                        ███████ ██    ██ █████   █████   
+                        ██   ██ ██    ██ ██      ██      
+                        ██   ██  ██████  ██      ██      
+                        
+                        
+```
+
+
 ## Installation / Setup
 
 To set up Foundry x Huff, first install the [Huff compiler](https://github.com/huff-language/huffc) with `yarn global add huffc`.
