@@ -1,3 +1,3 @@
-# Foundry-Huff-Template
+# Foundry Huff Template
 
 In progress.
