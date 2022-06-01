@@ -10,7 +10,7 @@ contract HuffDeployer {
     address constant HEVM_ADDRESS =
         address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
 
-    /// @notice Initializes cheat codes in order to use ffi to compile Yul and Yul+ contracts
+    /// @notice Initializes cheat codes in order to use ffi to compile Huff contracts
     _CheatCodes cheatCodes = _CheatCodes(HEVM_ADDRESS);
 
     ///@notice Compiles a Huff contract and returns the address that the contract was deployeod to
@@ -19,7 +19,7 @@ contract HuffDeployer {
     ///@return deployedAddress - The address that the contract was deployed to
 
     function deployContract(string memory fileName) public returns (address) {
-        ///@notice create a list of strings with the commands necessary to compile Yul and Yul+ contracts
+        ///@notice create a list of strings with the commands necessary to compile Huff contracts
         string[] memory cmds = new string[](3);
         cmds[0] = "huffc";
         cmds[1] = string.concat("huff_contracts/", fileName, ".huff");
