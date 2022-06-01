@@ -1,4 +1,4 @@
-# Foundry x Huff
+# Foundry Huff Template
 
 A Foundry template to compile and test Huff Contracts.
 
