@@ -41,6 +41,6 @@ contract HuffDeployer {
         );
 
         ///@notice return the address that the contract was deployed to
-        return address(0);
+        return deployedAddress;
     }
 }
