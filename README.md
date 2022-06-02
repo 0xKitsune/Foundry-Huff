@@ -143,8 +143,8 @@ contract SimpleStoreTest is DSTest {
         simpleStore.get();
     }
 
-    function testStore() public {
-        simpleStore.store(482723498134);
+    function testStore(uint256 val) public {
+        simpleStore.store(val);
     }
 }
 
