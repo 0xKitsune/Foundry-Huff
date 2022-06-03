@@ -155,6 +155,6 @@ contract SimpleStoreTest is DSTest {
 
 # Other Foundry Integrations
 
-- [Foundry-Yul+](https://github.com/ControlCplusControlV/Foundry-Yulp-Template) 
+- [Foundry-Yul+](https://github.com/ControlCplusControlV/Foundry-Yulp) 
 - [Foundry-Vyper](https://github.com/0xKitsune/Foundry-Vyper)
 
