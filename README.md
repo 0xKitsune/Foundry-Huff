@@ -2,33 +2,33 @@
 
 NOTE: This will not work until the [huffc yarn package](https://yarnpkg.com/package/huffc) is updated to include the [-n flag for compilation](https://github.com/huff-language/huffc/commit/2e5287afbfdf9cc977b204a4fd1e89c27375b040). Alternatively, you can build from source until then. This note will be removed when the yarn package is updated.
 
-A Foundry template to compile and test Huff Contracts. 
+A Foundry template to compile and test Huff contracts. 
 
 ```
-                                    ,...,
-                                  ,::::::<
-                                 ,::/^\"``.
-                                ,::/, `   e`.
-                               ,::; |        '.
-                               ,::|  \___,-.  c)
-                               ;::|     \   '-'
-                               ;::|      \
-                               ;::|   _.=`\
-                               `;:|.=` _.=`\
-                                 '|_.=`   __\
-                                 `\_..==`` /
-                                  .'.___.-'.
-                                 /          \
-                                ('--......--')
-                                /'--......--'\
-                                `"--......--"`
+                                            ,...,
+                                          ,::::::<
+                                         ,::/^\"``.
+                                        ,::/, `   e`.
+                                       ,::; |        '.
+                                       ,::|  \___,-.  c)
+                                       ;::|     \   '-'
+                                       ;::|      \
+                                       ;::|   _.=`\
+                                       `;:|.=` _.=`\
+                                         '|_.=`   __\
+                                         `\_..==`` /
+                                          .'.___.-'.
+                                         /          \
+                                        ('--......--')
+                                        /'--......--'\
+                                        `"--......--"`
 
-                        ██   ██ ██    ██ ███████ ███████ 
-                        ██   ██ ██    ██ ██      ██      
-                        ███████ ██    ██ █████   █████   
-                        ██   ██ ██    ██ ██      ██      
-                        ██   ██  ██████  ██      ██      
-                        
+                                ██   ██ ██    ██ ███████ ███████ 
+                                ██   ██ ██    ██ ██      ██      
+                                ███████ ██    ██ █████   █████   
+                                ██   ██ ██    ██ ██      ██      
+                                ██   ██  ██████  ██      ██      
+
                         
 ```
 
@@ -149,4 +149,12 @@ contract SimpleStoreTest is DSTest {
 }
 
 ```
+
+
+<br>
+
+# Other Foundry Integrations
+
+- [Foundry-Yul+](https://github.com/ControlCplusControlV/Foundry-Yulp) 
+- [Foundry-Vyper](https://github.com/0xKitsune/Foundry-Vyper)
 
