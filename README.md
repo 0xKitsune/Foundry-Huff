@@ -120,7 +120,7 @@ To deploy the contract, simply create a new instance of `HuffDeployer` and call 
 
 The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Huff contract can be used within Foundry like any other Solidity contract.
 
-To test any Huff contract deployed with HuffDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
+To test any Huff contract deployed with HuffDeployer, simply run `forge test`. Since `ffi` is set to `true` in the `foundry.toml` file, you can run `forge test` without needing to pass in the `--ffi` flag. You can also use additional flags as you would with any other Foundry project. For example: `forge test -f <url> -vvvv`.
 
 ```js
 import "../../lib/ds-test/test.sol";
