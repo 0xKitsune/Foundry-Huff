@@ -116,7 +116,11 @@ interface SimpleStore {
 
 First, the file imports `ISimpleStore.sol` as well as the `HuffDeployer.sol` contract.
 
-To deploy the contract, simply create a new instance of `HuffDeployer` and call `huffDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. In this example, `SimpleStore` is passed in to deploy the `SimpleStore.huff` contract. The `deployContract` function compiles the Huff contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to.
+To deploy the contract, simply create a new instance of `HuffDeployer` and call `huffDeployer.deployContract(fileName)` method, passing in the file name of the contract you want to deploy. Additionally, if the contract requires constructor arguments you can pass them in by supplying an abi encoded representation of the constructor arugments, which looks like this `HuffDeployer.deployContract(fileName, abi.encode(arg0, arg1, arg2...))`.
+
+
+In this example, `SimpleStore` is passed in to deploy the `SimpleStore.huff` contract. The `deployContract` function compiles the Huff contract and deploys the newly compiled bytecode, returning the address that the contract was deployed to. Since the `SimpleStore.huff` takes one constructor argument, the argument is wrapped in `abi.encode()` and passed to the `deployContract` function as a second argument.
+
 
 The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Huff contract can be used within Foundry like any other Solidity contract.
 
@@ -128,6 +132,7 @@ import "../../lib/utils/HuffDeployer.sol";
 
 import "../ISimpleStore.sol";
 
+
 contract SimpleStoreTest is DSTest {
     ///@notice create a new instance of HuffDeployer
     HuffDeployer huffDeployer = new HuffDeployer();
@@ -136,18 +141,22 @@ contract SimpleStoreTest is DSTest {
 
     function setUp() public {
         ///@notice deploy a new instance of ISimplestore by passing in the address of the deployed Huff contract
-        simpleStore = ISimpleStore(huffDeployer.deployContract("SimpleStore"));
+        simpleStore = ISimpleStore(
+            huffDeployer.deployContract("SimpleStore", abi.encode(1234))
+        );
     }
 
     function testGet() public {
-        simpleStore.get();
+        uint256 val = simpleStore.get();
+        require(val == 1234);
     }
 
-    function testStore(uint256 val) public {
-        simpleStore.store(val);
+    function testStore(uint256 _val) public {
+        simpleStore.store(_val);
+        uint256 val = simpleStore.get();
+        require(_val == val);
     }
 }
-
 ```
 
 
